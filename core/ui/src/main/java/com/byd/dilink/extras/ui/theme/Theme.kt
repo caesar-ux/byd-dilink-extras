@@ -25,6 +25,7 @@ private val DiLinkDarkColorScheme = darkColorScheme(
 fun DiLinkExtrasTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colorScheme = DiLinkDarkColorScheme,
+        typography = DiLinkTypography,
         content = content
     )
 }
