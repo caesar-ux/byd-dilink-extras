@@ -7,6 +7,7 @@ import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
 import androidx.compose.animation.core.*
+import kotlinx.coroutines.launch
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -90,10 +91,14 @@ fun TasbeehScreen(
         if (pulseKey > 0) {
             pulseRadius.snapTo(0f)
             pulseAlpha.snapTo(0.6f)
-            kotlinx.coroutines.launch {
-                pulseRadius.animateTo(200f, tween(400, easing = FastOutSlowInEasing))
+            kotlinx.coroutines.coroutineScope {
+                launch {
+                    pulseRadius.animateTo(200f, tween(400, easing = FastOutSlowInEasing))
+                }
+                launch {
+                    pulseAlpha.animateTo(0f, tween(400, easing = FastOutSlowInEasing))
+                }
             }
-            pulseAlpha.animateTo(0f, tween(400, easing = FastOutSlowInEasing))
         }
     }
 
