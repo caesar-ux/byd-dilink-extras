@@ -256,9 +256,10 @@ private fun HazardListItem(
                     color = DiLinkTextSecondary,
                     fontSize = 13.sp
                 )
-                if (!hazard.notes.isNullOrBlank()) {
+                val itemNotes = hazard.notes
+                if (!itemNotes.isNullOrBlank()) {
                     Text(
-                        text = hazard.notes,
+                        text = itemNotes,
                         color = DiLinkTextMuted,
                         fontSize = 12.sp,
                         maxLines = 1
@@ -353,8 +354,9 @@ private fun HazardDetailSheet(
             DetailRow("Speed", "${hazard.speed.toInt()} km/h")
             DetailRow("Heading", "${hazard.heading.toInt()}°")
             DetailRow("Confirmed", "${hazard.confirmed}×")
-            if (!hazard.notes.isNullOrBlank()) {
-                DetailRow("Notes", hazard.notes)
+            val detailNotes = hazard.notes
+            if (!detailNotes.isNullOrBlank()) {
+                DetailRow("Notes", detailNotes)
             }
 
             Spacer(Modifier.height(24.dp))

@@ -145,9 +145,10 @@ fun BatteryRecordRow(record: BatteryRecord, dateFormat: SimpleDateFormat) {
                     style = MaterialTheme.typography.bodySmall,
                     color = DiLinkTextMuted
                 )
-                if (!record.notes.isNullOrBlank()) {
+                val noteText = record.notes
+                if (!noteText.isNullOrBlank()) {
                     Text(
-                        record.notes,
+                        noteText,
                         style = MaterialTheme.typography.bodySmall,
                         color = DiLinkTextMuted
                     )
